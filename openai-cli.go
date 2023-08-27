@@ -1,7 +1,7 @@
 package main
 
 import (
-	"openai-cli/integrations/openai"
+	"openai-cli/cmd_actions"
 	"openai-cli/system"
 	"os"
 )
@@ -12,9 +12,5 @@ func main() {
 		os.Exit(1)
 	}
 
-	models := openai.ListModels()
-
-	for c := 0; c < len(models); c++ {
-		println(models[c].Id)
-	}
+	cmd_actions.Execute()
 }

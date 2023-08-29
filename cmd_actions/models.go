@@ -6,16 +6,12 @@ import (
 	"openai-cli/integrations/openai"
 )
 
-var modelCmd = &cobra.Command{
-	Use: "models",
+var modelCommand = &cobra.Command{
+	Use:   "models-list",
+	Short: "Lists all available models",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		for c := 0; c < len(args); c++ {
-			print(args[c])
-		}
-
 		models := openai.ListModels()
-
-		fmt.Printf("Executing: listing all models from openai\n")
+		fmt.Printf("Executing: listing all models\n")
 
 		for c := 0; c < len(models); c++ {
 			fmt.Printf("Model => id: %s\n", models[c].Id)
@@ -26,5 +22,5 @@ var modelCmd = &cobra.Command{
 }
 
 func init() {
-	rootCmd.AddCommand(modelCmd)
+	rootCmd.AddCommand(modelCommand)
 }

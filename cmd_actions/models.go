@@ -14,7 +14,7 @@ var modelCommand = &cobra.Command{
 		fmt.Printf("Executing: listing all models\n")
 
 		for c := 0; c < len(models); c++ {
-			fmt.Printf("Model => id: %s\n", models[c].Id)
+			fmt.Printf("id: %s\n", models[c].Id)
 		}
 
 		return nil

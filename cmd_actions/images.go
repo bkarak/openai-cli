@@ -27,7 +27,12 @@ var createImageVariationCommand = &cobra.Command{
 }
 
 func init() {
+	// intialize the createImageCommand
 	rootCmd.AddCommand(createImageCommand)
+	createImageCommand.Flags().String("prompt", "", "the description of the new image")
+	createImageCommand.Flags().Int("cardinality", 1, "how many images should be generated (1 to 10), default is 1")
+	createImageCommand.Flags().String("size", "256x256", "size of the image, one of 256x256, 512x512, 1024x1024")
+
 	rootCmd.AddCommand(createImageEditCommand)
 	rootCmd.AddCommand(createImageVariationCommand)
 }
